@@ -1,9 +1,13 @@
-<%= simple_form_for :scraping_params, url: restaurants_path, method: :post do |f| %>
-  <div>
-    <%= f.input :ward, collection: @tokyo_wards.keys, label: 'Choose a ward', include_blank: false, input_html: { id: 'ward_display' } %>
-    <%= f.input :category, collection: @categories.keys, label: 'Choose a category', include_blank: false, input_html: { id: 'category_display' } %>
+<div class="landing">
+  <div class="container">
+    <%= simple_form_for :scraping_params, url: restaurants_path, method: :post do |f| %>
+      <div>
+        <%= f.input :ward, collection: @tokyo_wards.keys, label: 'Choose a ward', include_blank: false, input_html: { id: 'ward_display' } %>
+        <%= f.input :category, collection: @categories.keys, label: 'Choose a category', include_blank: false, input_html: { id: 'category_display' } %>
+      </div>
+      <%= f.hidden_field :ward_kanji, id: 'ward_hidden' %>
+      <%= f.hidden_field :category_kanji, id: 'category_hidden' %>
+      <%= f.button :submit, 'Find a place!' %>
+    <% end %>
   </div>
-  <%= f.hidden_field :ward_kanji, id: 'ward_hidden' %>
-  <%= f.hidden_field :category_kanji, id: 'category_hidden' %>
-  <%= f.button :submit, 'Find a place!' %>
-<% end %>
+</div>
