@@ -1,5 +1,0 @@
-<h1><%= @restaurant[:name] %></h1>
-<%= link_to "#{@restaurant[:address]}", "https://maps.google.com/maps?q=#{@restaurant[:address]}", target: '_blank', rel: 'noopener' %>
-<% @photos.each do |photo| %>
-  <%= image_tag photo %>
-<% end %>

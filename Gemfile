@@ -78,3 +78,6 @@ end
 
 # custom gems
 gem "nokogiri"
+gem "geocoder"
+gem 'deepl-rb', require: 'deepl'
+gem 'romaji'
