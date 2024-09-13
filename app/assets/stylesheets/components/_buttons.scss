@@ -1,0 +1,24 @@
+.button {
+  background-color: #E03E3E !important;
+  color: #F4F4F4 !important;
+  padding: 16px;
+  text-decoration: none;
+  border-radius: 16px;
+  margin: 8px;
+
+  &:hover {
+  background-color: #b63131 !important;
+  color: #F4F4F4 !important;
+  }
+}
+
+.button-nav {
+  background-color: #E03E3E !important;
+  color: #F4F4F4 !important;
+  padding: 16px;
+  text-decoration: none;
+  border-radius: 16px;
+  margin: 8px;
+  width: 70%;
+  text-align: center;
+}

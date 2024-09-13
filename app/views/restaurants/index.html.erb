@@ -1,5 +1,37 @@
-<h1><%= @restaurant["name"] %></h1>
-<%= link_to "#{@restaurant["address"]}", "https://maps.google.com/maps?q=#{@restaurant["address"]}", target: '_blank', rel: 'noopener' %>
-<% @photos.each do |photo| %>
-  <%= image_tag photo %>
-<% end %>
+<div class="container">
+  <div class="title">
+    <h3>Your restaurant is:</h3>
+    <h2><%= @restaurant["name"] %></h2>
+  </div>
+  <div class="table">
+    <div class="address">
+      <div class="address-left">
+        <h6>Address:</h6>
+      </div>
+      <div class="address-right">
+        <p><%= @restaurant["address"] %></p>
+        <%= link_to "Google Maps", "https://maps.google.com/maps?q=#{@restaurant["address"]}", target: '_blank', rel: 'noopener', class: 'button' %>
+      </div>
+    </div>
+    <div class="address">
+      <div class="address-left">
+        <h6>Opening Hours:</h6>
+      </div>
+      <div class="address-right">
+        <p><%= @opening_hours %></p>
+      </div>
+    </div>
+  </div>
+  <div class="photos">
+    <h3>Photos:</h6>
+    <div class="photo-grid">
+      <% @photos.each do |photo| %>
+        <%= image_tag photo %>
+      <% end %>
+    </div>
+  </div>
+  <div class="buttons">
+    <%= link_to "More Details", "#", class: "button-nav" %>
+    <%= link_to "Start Over", root_path, class: "button-nav" %>
+  </div>
+</div>
