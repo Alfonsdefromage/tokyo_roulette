@@ -25,12 +25,14 @@ class RestaurantsController < ApplicationController
     roulette
     session[:restaurant] = @restaurant
     session[:photos] = @photos
+    session[:opening_hours] = @opening_hours
     redirect_to restaurants_path
   end
 
   def index
     @restaurant = session[:restaurant]
     @photos = session[:photos]
+    @opening_hours = session[:opening_hours]
   end
 
 
@@ -38,7 +40,7 @@ class RestaurantsController < ApplicationController
     user_location = tranlsation_to_japanese(scrapping_params[:location])
     user_category = scrapping_params[:category_kanji]
     category = URI.encode_www_form_component(user_category)
-    place = URI.encode_www_form_component(user_location)
+    place = URI.encode_www_form_component("#{user_location}駅")
     # category = URI.encode_www_form_component("和食")
 
     url = "https://r.gnavi.co.jp/area/jp/rs/?fwp=#{place}&fw=#{category}&r=500"
@@ -56,9 +58,11 @@ class RestaurantsController < ApplicationController
     @restaurant =
       {
         name: doc.at("#info-name").text.strip,
-
         address: doc.at(".adr.slink").text.strip.gsub(/\s+/, ' '),
+        open: doc.at("#info-open").text.strip.gsub(/\s+/, ' ')
       }
+
+    @opening_hours = translation_to_english(@restaurant[:open])
 
     restaurant_photos = restaurant_url + "/photo/"
     html_photos = URI.open(restaurant_photos)
@@ -68,7 +72,7 @@ class RestaurantsController < ApplicationController
       element.at_css('img')&.[]('src')
     end
 
-    @photos = photos.sample(5)
+    @photos = photos.sample(6)
   end
 
   private
@@ -81,7 +85,15 @@ class RestaurantsController < ApplicationController
     translation.text
   end
 
+  def translation_to_english(text)
+    DeepL.configure do |config|
+      config.auth_key = ENV["DEEPL_AUTH_KEY"]
+    end
+    translation = DeepL.translate text, "JA", "EN"
+    translation.text
+  end
+
   def scrapping_params
-    params.require(:scrapping_params).permit(:location, :category)
+    params.require(:scrapping_params).permit(:location, :category, :category_kanji)
   end
 end
