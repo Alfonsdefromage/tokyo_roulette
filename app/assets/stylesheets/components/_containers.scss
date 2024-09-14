@@ -29,12 +29,18 @@
   flex-direction: column;
   width: 100%;
   margin-bottom: 1rem;
+  margin-top: 2rem;
+
+  h1 {
+    font-size: 48px;
+  }
 }
 
 .address {
   display: table-row;
   justify-content: center;
   align-items: center;
+  background-color: $light-gray;
 
   .address-left {
     display: table-cell;
@@ -46,7 +52,7 @@
 
     h6 {
       margin: 0;
-      background-color: $blue-white;
+      background-color: $light-gray;
     }
   }
 
@@ -60,7 +66,7 @@
 
     p {
       margin: 0;
-      background-color: $blue-white;
+      background-color: $light-gray;
     }
   }
 }
@@ -73,6 +79,7 @@ table {
   border-spacing: 0;
   border-radius: 12px;
   overflow: hidden;
+  background-color: $light-gray;
 }
 
 .photos {
@@ -84,6 +91,7 @@ table {
   border: solid 1px $gray;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  background-color: $light-gray;
 
   h3 {
     padding: 16px;
@@ -96,4 +104,49 @@ table {
   align-items: center;
   flex-direction: column;
   width: 100%;
+}
+
+.form {
+  width: 90%;
+}
+
+.form-control {
+  background-color: $ghost;
+  border: solid 1px $gray;
+
+  &:focus {
+    background-color: $white;
+  }
+}
+
+.form-select {
+  background-color: $ghost;
+  border: solid 1px $gray;
+
+  &:focus {
+    background-color: $white;
+  }
+}
+
+.intro {
+  width: 90%;
+  margin-bottom: 1rem;
+
+  h1 {
+    margin-bottom: 2rem;
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    color: $red;
+    font-size: 48px;
+  }
+
+  p {
+    color: $dark-gray;
+    font-size: small;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 }

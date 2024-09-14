@@ -1,14 +1,15 @@
-<div class="landing">
-  <div class="container">
-    <div data-controller="replace-kanji">
-      <%= simple_form_for :scrapping_params, url: restaurants_path, method: :post, local: true  do |f| %>
-        <div>
-          <%= f.input :location, label: 'Choose your location' %>
-          <%= f.input :category, collection: @categories.keys, label: 'Choose a category', include_blank: false, input_html: { data: { action: 'change->replace-kanji#replace', replace_kanji_target: "cat" }} %>
-        </div>
-        <%= f.hidden_field :category_kanji, data: { replace_kanji_target: "kanji" } %>
-        <%= f.button :submit, 'Find a place!'%>
-      <% end %>
-    </div>
+<div class="container">
+  <div class ="intro">
+    <h1>TOKYO ROULETTE</h1>
+    <p> Find a random place to eat in Tokyo! <br>
+       Eating out in Tokyo is difficult. There hundreds of restaurants, why choosing the place to eat can be really a hustle sometimes. With Tokyo Roulette all you have to do is entering your closest station, and the food type you want to eat, and Tokyo Roulette will give you a random restaurant. </p>
+  </div>
+  <div class="form" data-controller="replace-kanji">
+    <%= simple_form_for :scrapping_params, url: restaurants_path, method: :post, local: true  do |f| %>
+      <%= f.input :location, label: 'Enter a station:', placeholder: "Shinjuku", class: "form-style" %>
+      <%= f.input :category, collection: @categories.keys, label: 'Choose a category', include_blank: true, input_html: { data: { action: 'change->replace-kanji#replace', replace_kanji_target: "cat" }} %>
+      <%= f.hidden_field :category_kanji, data: { replace_kanji_target: "kanji" } %>
+      <%= f.button :submit, 'Find a place!', class: "button-landing" %>
+    <% end %>
   </div>
 </div>
