@@ -22,3 +22,15 @@
   width: 70%;
   text-align: center;
 }
+
+.button-landing {
+  background-color: #E03E3E !important;
+  color: #F4F4F4 !important;
+  text-decoration: none;
+  border-radius: 16px;
+
+  &:hover {
+  background-color: #b63131 !important;
+  color: #F4F4F4 !important;
+  }
+}
