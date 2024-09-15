@@ -1,0 +1,19 @@
+<div class="table">
+  <div class="address">
+    <div class="address-left">
+      <h6>Address:</h6>
+    </div>
+    <div class="address-right">
+      <p><%= @restaurant["address"] %></p>
+      <%= link_to "Google Maps", "https://maps.google.com/maps?q=#{@restaurant["address"]}", target: '_blank', rel: 'noopener', class: 'button' %>
+    </div>
+  </div>
+  <div class="opening">
+    <div class="opening-left">
+      <h6>Opening Hours:</h6>
+    </div>
+    <div class="opening-right">
+      <p><%= @opening_hours %></p>
+    </div>
+  </div>
+</div>
