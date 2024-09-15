@@ -9,7 +9,7 @@
 }
 
 .container {
-  background-color: $blue-white;
+  background-color: $light-gray;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,19 +20,30 @@
   min-height: 100vh;
   width: 50%;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1), -10px -10px 10px rgba(0, 0, 0, 0.1);
+  padding-top: 2rem;
 }
 
 .title {
   display: flex;
-  justify-content: space-around;
-  align-content: flex-start;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  width: 100%;
-  margin-bottom: 1rem;
-  margin-top: 2rem;
+  width: 50%;
+  padding: 16px;
+  background-color: $red;
+  border-bottom: solid $white 1px;
+  color: $white;
+  text-shadow: -1px -1px 0 $black, 1px -1px 0 $black, -1px 1px 0 #000, 1px 1px 0 $black;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 
   h1 {
     font-size: 48px;
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    text-align: center;
   }
 }
 
@@ -41,6 +52,7 @@
   justify-content: center;
   align-items: center;
   background-color: $light-gray;
+  padding-top: 1rem;
 
   .address-left {
     display: table-cell;
@@ -49,6 +61,7 @@
     width: 25%;
     text-align: center;    /* Horizontally center the content */
     vertical-align: middle;
+    border-top-left-radius: 8px;
 
     h6 {
       margin: 0;
@@ -63,6 +76,7 @@
     width: 75%;
     text-align: center;    /* Horizontally center the content */
     vertical-align: middle;
+    border-top-right-radius: 8px;
 
     p {
       margin: 0;
@@ -70,6 +84,44 @@
     }
   }
 }
+
+.opening {
+  display: table-row;
+  justify-content: center;
+  align-items: center;
+  background-color: $light-gray;
+
+  .opening-left {
+    display: table-cell;
+    padding: 8px;
+    border: solid 1px $gray;
+    width: 25%;
+    text-align: center;    /* Horizontally center the content */
+    vertical-align: middle;
+    border-bottom-left-radius: 8px;
+
+    h6 {
+      margin: 0;
+      background-color: $light-gray;
+    }
+  }
+
+  .opening-right {
+    display: table-cell;
+    padding: 16px !important;
+    border: solid 1px $gray;
+    width: 75%;
+    text-align: center;    /* Horizontally center the content */
+    vertical-align: middle;
+    border-bottom-right-radius: 8px;
+
+    p {
+      margin: 0;
+      background-color: $light-gray;
+    }
+  }
+}
+
 
 table {
   display: table;
@@ -92,6 +144,7 @@ table {
   margin-top: 1rem;
   margin-bottom: 1rem;
   background-color: $light-gray;
+  border-radius: 8px;
 
   h3 {
     padding: 16px;
@@ -149,4 +202,12 @@ table {
     font-weight: 400;
     font-style: normal;
   }
+}
+
+.no-restaurant {
+  width: 70%;
+  height: 30vh;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
 }
